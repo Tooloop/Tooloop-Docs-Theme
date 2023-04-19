@@ -1,5 +1,6 @@
 const Search = Vue.createApp({
     name: "Search",
+    delimiters: ['{(', ')}'],
     data() {
         return {
             isActive: false,
@@ -7,16 +8,14 @@ const Search = Vue.createApp({
             results: [],
             timeout: null,
             selected: -1,
-            lang: null
         }
     },
     computed: {
         api() {
-            return "search?q=";
+            return "/search/";
         }
     },
     created() {
-        this.lang = document.getElementsByTagName("html")[0].lang;
         window.addEventListener("keydown", this.onKeyDown);
     },
     mounted() {
@@ -43,8 +42,6 @@ const Search = Vue.createApp({
     methods: {
         show() {
             this.isActive = true;
-            try { TourMenu.hide(); } catch (e) { }
-            Sidebar.hide();
             this.focus();
         },
         hide() {
@@ -67,12 +64,16 @@ const Search = Vue.createApp({
             fetch(this.api + query)
                 .then(response => response.json())
                 .then(response => {
-                    this.results = response;
+                    this.results = response.results;
                 })
                 .catch(error => console.error(error)); // TODO: proper error handling
         },
         focus() {
-            this.$refs.searchfield.focus();
+            // wait for two frames as the search field will have to be added to
+            // the DOM in order to receive focus
+            setTimeout(()=>{
+                this.$refs.searchfield.focus();
+            }, 32);
         },
         visit() {
             if (this.results.length > 0)
@@ -82,14 +83,24 @@ const Search = Vue.createApp({
             this.selected = Math.min(Math.max(this.selected + position, 0), this.results.length - 1);
         },
         onKeyDown(keyboardEvent) {
-            if (keyboardEvent.key == 'Escape') this.hide();
-            else if (keyboardEvent.key == 'Enter') this.visit();
+            if (keyboardEvent.key == 'Escape') {
+                this.hide();
+            }
+            else if (keyboardEvent.key == 'Enter') {
+                this.visit();
+            }
             else if (keyboardEvent.key == 'ArrowUp') {
                 this.selectResult(-1);
                 return false;
             }
             else if (keyboardEvent.key == 'ArrowDown') {
                 this.selectResult(+1);
+                return false;
+            }
+            else if ((keyboardEvent.key == 'k' && keyboardEvent.metaKey) ||
+            (keyboardEvent.key == 'k' && keyboardEvent.ctrlKey)) {
+                this.show();
+                keyboardEvent.preventDefault();
                 return false;
             }
         }
@@ -99,6 +110,6 @@ const Search = Vue.createApp({
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Search.show();
-    // Search.query = "graf";
+    Search.show();
+    Search.query = "install";
 });

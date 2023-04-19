@@ -109,14 +109,9 @@ $tile-spacing: 1px;
     }
 }
 
-// Modal
-$modal-content-width: calc(100vw - 3rem);
-
-
 * {
     scroll-behavior: smooth;
 }
 
 // Menu
-
 $menu-item-hover-background-color: $hover-color-dark;

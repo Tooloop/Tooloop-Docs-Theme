@@ -1,0 +1,20 @@
+#search {
+    
+    .clear-input-button {
+        pointer-events: all !important;
+    }
+
+    .panel-block:first-child {
+        position: sticky;
+        top: 0;
+        background-color: $light;
+    }
+
+    .panel-block div {
+        line-height: 1.25rem;
+    }
+
+    .modal-content {
+        max-height: calc(100vh - 160px);
+    }
+}

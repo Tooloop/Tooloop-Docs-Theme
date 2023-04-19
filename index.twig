@@ -56,9 +56,12 @@
 			</div>
 		</div>
 
+		{% include 'search-form.twig' %}
 
 		{% include 'footer.twig' %}
 
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		{# <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> #}
 		<script src="{{theme_url}}/js/search.js"></script>
 		<script src="{{theme_url}}/vendor/prismjs/prism.js"></script>
 	</body>

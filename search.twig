@@ -1,9 +1,17 @@
 {% set search_results = pages|apply_search %}
 {% set results = [] %}
 {% for page in search_results %}
+
+	{% if page.title %}
+		{% set title = page.title %}
+	{% else %}
+		{% set title = page.id|split('/')|last %}
+	{% endif %}
+
 	{% set results = results|merge([
 				{
-					"title": page.title,
+					"id": page.id,
+					"title": title,
 					"description": page.description,
 					"url": page.url,
 					"content": page.raw_content|e('html'),

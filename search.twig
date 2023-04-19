@@ -1,0 +1,15 @@
+{% set search_results = pages|apply_search %}
+{% set results = [] %}
+{% for page in search_results %}
+	{% set results = results|merge([
+				{
+					"title": page.title,
+					"description": page.description,
+					"url": page.url,
+					"content": page.raw_content|e('html'),
+				}
+			])%}
+{% endfor %}
+
+{% set response = {'search': search_terms|e('html'), 'results': results} %}
+{{ response|json_encode(constant('JSON_PRETTY_PRINT')) }}

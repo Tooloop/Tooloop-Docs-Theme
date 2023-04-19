@@ -1,0 +1,67 @@
+// -----------------------------------------------------------------------------
+// Fira Sans
+// -----------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('../fonts/FiraSans-Medium.woff2') format('woff2'),
+  url('../fonts/FiraSans-Medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('../fonts/FiraSans-Regular.woff2') format('woff2'),
+  url('../fonts/FiraSans-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+// Ultralight italic
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('../fonts/FiraSans-UltraLightItalic.woff2') format('woff2'),
+  url('../fonts/FiraSans-UltraLightItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+}
+
+
+
+// -----------------------------------------------------------------------------
+// Bitter
+// -----------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'Bitter';
+  src: url('../fonts/bitter-regular-webfont.woff2') format('woff2'),
+       url('../fonts/bitter-regular-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal; 
+  font-display: swap;
+}
+
+
+
+// Features
+
+.smcp {
+  -moz-font-feature-settings: "smcp";
+  -ms-font-feature-settings: "smcp";
+  -webkit-font-feature-settings: "smcp" 1;
+  -o-font-feature-settings: "smcp";
+  font-feature-settings: "smcp";
+}
+
+.otf {
+  font-feature-settings: "kern" on, "liga" on, "calt" on, "smcp";
+  -moz-font-feature-settings: "kern" on, "liga" on, "calt" on, "smcp";
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on, "smcp";
+  -ms-font-feature-settings: "kern" on, "liga" on, "calt" on, "smcp";
+  -o-font-feature-settings: "kern" on, "liga" on, "calt" on, "smcp";
+}

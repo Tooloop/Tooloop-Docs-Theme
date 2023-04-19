@@ -1,0 +1,122 @@
+// Colors
+
+$orange: #ff9900; // orange
+$yellow: #ff9900; // orange
+$green: #30bfa0; // dark green
+$turquoise: #66ffd9; // light green
+$cyan: #3cbeeb; // light blue
+// $blue: #003366; // dark blue
+$blue: hsl(210, 100%, 12%); // dark blue
+$purple: #570044; // purple
+$red: #e6004c; // pink
+
+$primary-light: #ff0066; // pink
+$primary: $red;
+// $primary-dark: #d50046; // pink
+$primary-dark: darken($primary, 20%);
+$danger: $purple;
+
+$white-ter: hsl(0, 0%, 95%);
+$grey-light: hsl(0, 0%, 60%);
+$grey: hsl(0, 0%, 40%);
+$grey-dark: hsl(0, 0%, 20%);
+$grey-darker: hsl(0, 0%, 15%);
+
+$hover-color-light: rgba(255, 255, 255, 0.5);
+$hover-color-dark: rgba(0, 0, 0, 0.075);
+
+// Typography
+
+$body-size: 18px;
+$family-sans-serif: "Fira Sans", "FiraSans", sans-serif;
+$family-serif: "Bitter", serif;
+
+$family-secondary: $family-serif;
+$title-family: $family-serif;
+$subtitle-family: $family-serif;
+
+$content-heading-weight: 300;
+
+.content {
+    a:not(.call-to-action):not(.button) {
+        outline: none;
+        color: #000;
+        text-decoration: underline;
+        text-decoration-color: $primary;
+        -webkit-tap-highlight-color: rgba(252, 185, 109, 0.5);
+    }
+    
+    a:not(.button):not(.call-to-action):hover {
+        color: #fff !important;
+        background-image: linear-gradient(to top, transparent 0.2em, $primary 0.2em, $primary 1.3em, transparent 1.3em);
+    }
+}
+
+a.call-to-action {
+    text-decoration: underline;
+    color: $blue !important;
+}
+
+a.call-to-action:hover {
+    color: $red !important;
+    background-color: $hover-color-light;
+}
+
+a:not(.is-primary):not(.button):hover {
+    color: $primary !important;
+}
+
+// Columns
+
+$column-gap: 1.5rem;
+
+// Components
+
+$radius: 0;
+$radius-large: 0;
+
+.button.is-tiny {
+    font-size: 0.666666rem;
+}
+
+$tile-spacing: 1px;
+
+.hero {
+    background-position: center;
+    background-size: cover;
+}
+
+// Tables
+.content {
+    .table {
+        background-color: inherit;
+        color: inherit;
+    }
+    .table td,
+    .table th {
+        border-width: 1px 0 !important;
+        color: inherit;
+    }
+
+    .table tbody tr:last-child td,
+    .table tbody tr:last-child th {
+        border-bottom-width: 1px !important;
+    }
+
+    .table tbody tr:last-child td,
+    .table tbody tr:last-child th {
+        border-bottom-width: 1px !important;
+    }
+}
+
+// Modal
+$modal-content-width: calc(100vw - 3rem);
+
+
+* {
+    scroll-behavior: smooth;
+}
+
+// Menu
+
+$menu-item-hover-background-color: $hover-color-dark;

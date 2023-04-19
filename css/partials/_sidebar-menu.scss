@@ -1,0 +1,167 @@
+#docs-menu {
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: -webkit-sticky;
+    position: sticky;
+    top: $navbar-height;
+}
+
+#docs-menu-toggle {
+    display: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2rem;
+    right: 0;
+    float: right;
+    z-index: 38;
+}
+
+#docs-menu-state {
+    display: none;
+}
+
+#docs-menu-state:checked~#docs-menu {
+    display: block;
+    left: 0;
+}
+
+#docs-menu .delete {
+    display: none;
+}
+
+@media screen and (max-width: $desktop - 1px) {
+    #docs-menu-toggle {
+        display: block;
+    }
+
+    #docs-menu {
+        float: none;
+        position: fixed;
+        left: -100%;
+        top: 2rem;
+        height: calc(100% - 4rem);
+        width: calc(100% - 1.5rem);
+        transition: left 0.3s cubic-bezier(.19, 1, .22, 1);
+        box-shadow: 0 0 1rem;
+    }
+
+    #docs-menu .delete {
+        display: block;
+        position: fixed;
+        left: calc(100% - 4rem);
+    }
+}
+
+
+.tree
+{
+    text-align: left;
+    display: block;
+    width: 100%;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+
+    &.trunk
+    {
+        display: inline-block;
+    }
+
+    &:not(.trunk)
+    {
+        padding-left: 1.5em;
+        li
+        {
+            overflow: hidden;
+            height: 0;
+            display: block;
+        }
+    }
+
+    label
+    {
+        display: block;
+        cursor: pointer;
+        color: $text;
+        padding: 0.25em 0 0.25rem 0em;;
+        &:before
+        {
+            font-family: 'Font Awesome\ 6 Free';
+            font-weight: bold;
+            width: 1em;
+            height: 1em;
+            line-height: 1em;
+            content: "\f0da";
+            padding-left: 0.3125rem;
+            display: inline-block;
+            color: $link;
+            transition: transform 0.3s cubic-bezier(.19,1,.22,1);
+        }
+        &:hover
+        {
+            color: $text-light;
+        }
+    }
+
+    .node
+    {
+        a
+        {
+            padding: 0.25rem 0 0.25rem 0;
+            display: block;
+            color: $text-light;
+            text-decoration: underline;
+            
+            &:hover
+            {
+                color: $link-hover;
+            }
+        }
+
+        &:before
+        {
+            content: " ";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            // border-bottom: 1px solid $border;
+        }
+
+
+        .is-active
+        {
+            font-weight: $weight-semibold;
+            a
+            {
+                color: $link;
+            }
+        }
+    }
+
+
+
+    &.nested
+    {
+        padding-left: 1.7em;
+    }
+
+    [type="checkbox"]
+    {
+        display: none;
+        &:checked + label 
+        {
+            color: $text-strong;
+        }
+        &:checked + label:before 
+        {
+            transform: rotate(90deg);
+        }
+        &:checked ~ ul > li
+        {
+            height: auto;
+        }
+    }
+}

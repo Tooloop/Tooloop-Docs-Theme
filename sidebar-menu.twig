@@ -1,0 +1,65 @@
+{# mobile button #}
+<label id="docs-menu-toggle" for="docs-menu-state" class="button is-light is-small">
+	<i class="fa fa-clipboard-list"></i>
+	Table of contents
+</label>
+
+{# state holder #}
+<input
+type="checkbox" id="docs-menu-state"/>
+
+
+{# sub pages #}
+<aside id="docs-menu" class="box is-shadowless has-background-light pt-6 pl-6 pb-6">
+	{% set root =  pages["index"].tree_node %}
+	{{ _self.menu_level(root, current_page, 0) }}
+</aside>
+
+
+{# recursive sub menu #}
+{% macro menu_level(root_node, current_page, level) %}
+
+	<ul class="tree{% if level == 0 %} trunk{% endif %}">
+
+
+		{% for node in root_node.children if not node.page.hidden and not node.page.meta.menuhidden %}
+			<li
+				class="node{% if node.page.id == current_page.id %} is-active{% endif %}">
+
+				{# Folder #}
+				{% if node.children %}
+					<input type="checkbox" id="trigger-{{node.id|split('/')|last|url_encode}}" {% if node.id in current_page.id %} checked {% endif %}>
+					<label for="trigger-{{node.id|split('/')|last|url_encode}}">
+						<span class="icon">
+							<i class="fa fa-folder fa-fw has-text-info"></i>
+						</span>
+						{% if node.page.title %}
+							{{node.page.title}}
+						{% else %}
+							{{node.id|split('/')|last}}
+						{% endif %}
+					</label>
+
+					{# Recursion one level deeper #}
+					{{ _self.menu_level(node, current_page, level+1) }}
+
+
+					{# Page #}
+				{% else %}
+					<a href="{{ node.page.url }}">
+						<span class="icon">
+							<i class="fa fa-file fa-fw has-text-white"></i>
+						</span>
+						{% if node.page.title %}
+							{{node.page.title}}
+						{% else %}
+							{{node.id|split('/')|last}}
+						{% endif %}
+					</a>
+				{% endif %}
+
+			</li>
+		{% endfor %}
+
+	</ul>
+{% endmacro %}

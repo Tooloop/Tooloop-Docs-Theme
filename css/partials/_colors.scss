@@ -1,0 +1,31 @@
+.has-background-primary,
+.has-background-danger,
+.has-background-dark,
+.has-background-black,
+.has-background-info,
+.has-background-link {
+    color: white;
+    
+    h1, h2, h3, h3, h4, h5, h6 {
+        color: white;
+    }
+    
+    a,
+    strong {
+        text-shadow: none !important;
+        color: white !important;
+    }
+}
+.has-background-warning,
+.has-background-success {
+    a,
+    strong {
+        text-shadow: none !important;
+    }
+}
+
+.has-background-success { th, td { border-color: darken($success, 10%) !important; } }
+.has-background-link { th, td { border-color: $grey-light !important; } }
+.has-background-black { th, td { border-color: $grey !important; } }
+.has-background-dark { th, td { border-color: $grey !important; } }
+.has-background-warning { th, td { border-color: $warning-dark !important; } }

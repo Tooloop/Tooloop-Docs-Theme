@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+@import "partials/fonts";
+
+
+@import "partials/customize-bulma";
+@import "../vendor/bulma/bulma.sass";
+
+@import "partials/colors";
+@import "partials/navbar";
+@import "partials/sidebar-menu";
+
+
+@charset "UTF-8";
+
+// -----------------------------------------------------------------------------
+// Import the initial variables
+// -----------------------------------------------------------------------------
+@import "../vendor/bulma/sass/utilities/initial-variables";
+@import "../vendor/bulma/sass/utilities/functions";

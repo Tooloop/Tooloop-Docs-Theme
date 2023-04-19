@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ site_title }}</title>
+		{% if meta.description %}
+			<meta name="description" content="{{ meta.description|striptags }}">
+		{% endif %}
+		{% if meta.robots %}
+			<meta name="robots" content="{{ meta.robots }}">
+		{% endif %}
+		{% if current_page %}
+			<link rel="canonical" href="{{ current_page.url }}"/>
+		{% endif %}
+
+		<link href="{{theme_url}}/vendor/prismjs/prism.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/vendor/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/vendor/fontawesome/css/solid.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/vendor/fontawesome/css/brands.min.css">
+	</head>
+
+	<body>
+
+		{% include 'navbar.twig' %}
+
+		<div class="columns is-desktop">
+
+			{% set root = current_page.id|split('/')[0] %}
+			{% set root = pages[root~'/index'].tree_node %}
+
+			<div class="column has-background-light is-4 is-3-fullhd is-flex pb-0 pr-0">
+				{{ include('sidebar-menu.twig') }}
+			</div>
+
+			<div class="column is-8-desktop is-9-fullhd">
+
+				<section class="section">
+					<div class="content">
+
+
+						<h1 class="title is-size-3">{{ meta.title }}</h1>
+						{% if meta.description %}
+							<h2 class="subtitle is-size-5 has-text-grey">{{meta.description}}</h2>
+						{% endif %}
+
+						{% block content %}
+							{{content}}
+						{% endblock %}
+
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+
+		{% include 'footer.twig' %}
+
+		<script src="{{theme_url}}/js/search.js"></script>
+		<script src="{{theme_url}}/vendor/prismjs/prism.js"></script>
+	</body>
+
+</html>

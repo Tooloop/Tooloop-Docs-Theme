@@ -15,7 +15,7 @@
 			<link rel="canonical" href="{{ current_page.url }}"/>
 		{% endif %}
 
-		<link rel="stylesheet" type="text/css" href="{{theme_url}}/vendor/prismjs/prism.css" >
+		<link rel="stylesheet" type="text/css" href="{{theme_url}}/vendor/prismjs/prism.css">
 		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/css/styles.css">
 		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/vendor/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" type="text/css" href="{{ theme_url }}/vendor/fontawesome/css/solid.min.css">
@@ -56,13 +56,14 @@
 			</div>
 		</div>
 
-		{% include 'search-form.twig' %}
+		{% if pages['_meta'].meta.search %}
+			{% include 'search-form.twig' %}
+			<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+			<script src="{{theme_url}}/js/search.js"></script>
+		{% endif %}
 
 		{% include 'footer.twig' %}
 
-		{# <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> #}
-		<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-		<script src="{{theme_url}}/js/search.js"></script>
 		<script src="{{theme_url}}/vendor/prismjs/prism.js"></script>
 	</body>
 

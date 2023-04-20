@@ -25,11 +25,13 @@
 		</div>
 
 		<div class="column is-flex is-justify-content-end">
-			<a class="navbar-item" onclick="Search.show()">
-				<span class="icon">
-					<i class="fas fa-search"></i>
-				</span>
-			</a>
+			{% if pages['_meta'].meta.search %}
+				<a class="navbar-item" onclick="Search.show()">
+					<span class="icon">
+						<i class="fas fa-search"></i>
+					</span>
+				</a>
+			{% endif %}
 
 			{% if pages["_meta"].meta.edit_url %}
 				<a class="navbar-item" href="{{ pages["_meta"].meta.edit_url|replace({'%file%': current_page.id~'.md'}) }}">

@@ -1,18 +1,8 @@
 # A docs theme for Pico CMS
 
-## Software stack
-
-| Package                                  | Description        |
-| ---------------------------------------- | ------------------ |
-| [Bulma](https://bulma.io/)               | CSS Framework      |
-| [Sass](https://sass-lang.com/)           | CSS compiler       |
-| [Vue.js](https://vuejs.org/)             | Javascript UI      |
-| [Prism](https://prismjs.com/)            | Syntax highlighing |
-| [Font Awesome](https://fontawesome.com/) | Icons              |
-
 ## Installation
 
-Copy this repos contents to `themes/Tooloop-Docs`.  
+Copy this contents of this repository to `themes/Tooloop-Docs`.  
 Then activate it in your `config/config.yml`:
 ```yaml
 ...
@@ -20,23 +10,50 @@ theme: Tooloop-Docs
 ...
 ```
 
-## Development
-
-Bulma is contained as a submodules. Clone like so:
-
-```bash
-git clone --recurse-submodules https://github.com/Tooloop/Tooloop-Docs-Theme.git themes/Tooloop-Docs
-```
-
-Now you can compile scss changes like this:
-
-```bash
-sass --watch themes/Tooloop-Docs/css/styles.scss:themes/Tooloop-Docs/css/styles.css --style compressed
-```
-
 ## Customization
 
-### Footer
+### Logo
+
+You can optionally add a site logo in the navbar:
+
+`content/_meta.md`
+```yaml
+logo: %assets_url%/tooloop-logo.svg
+```
+
+
+### Search
+
+The theme includes a search function based on these two plugins:
+
+- https://github.com/PontusHorn/Pico-Search
+- https://github.com/Tooloop/Pico-Json-Header
+
+Install these first and then enable the search:
+
+`content/_meta.md`
+```yaml
+search: true
+```
+Also exclude these files from the search:
+
+`config/config.yml`
+```yaml
+search_excludes:
+    - 'search'
+    - '_footer'
+    - '_meta'
+```
+
+### Edit page link
+
+`content/_meta.md`
+```yaml
+# %file% will be replaced by the file path relative to the content folder
+edit_url: https://github.com/Tooloop/Tooloop-OS-Website/edit/master/content/%file%
+```
+
+### Footer links
 
 You can optionally create a file `_footer.md` in your content folder.
 In there you can define Sections of link lists which will be rendered as columns.
@@ -67,4 +84,29 @@ Sections:
           url: https://github.com/Tooloop/Tooloop-OS-Website
           icon: fab fa-github
 ---
+```
+
+## Development
+
+Software stack
+
+| Package                                  | Description        |
+| ---------------------------------------- | ------------------ |
+| [Bulma](https://bulma.io/)               | CSS Framework      |
+| [Sass](https://sass-lang.com/)           | CSS compiler       |
+| [Vue.js](https://vuejs.org/)             | Javascript UI      |
+| [Prism](https://prismjs.com/)            | Syntax highlighing |
+| [Font Awesome](https://fontawesome.com/) | Icons              |
+
+Bulma is contained as a submodules. If you want to make changes to the `.scss`
+files, you need to clone recursively:
+
+```bash
+git clone --recurse-submodules https://github.com/Tooloop/Tooloop-Docs-Theme.git themes/Tooloop-Docs
+```
+
+Compile `.scss` changes like this:
+
+```bash
+sass --watch themes/Tooloop-Docs/css/styles.scss:themes/Tooloop-Docs/css/styles.css --style compressed
 ```

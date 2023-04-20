@@ -1,8 +1,12 @@
 #navbar {
     z-index: 40;
 
-    .navbar-item:hover {
+    a.navbar-item:hover {
         background-color: $black;
+    }
+
+    #logo img {
+        max-height: 1.5rem;
     }
 }
 

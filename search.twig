@@ -1,5 +1,6 @@
 {% set search_results = pages|apply_search %}
 {% set results = [] %}
+
 {% for page in search_results %}
 
 	{% if page.title %}
@@ -12,12 +13,11 @@
 				{
 					"id": page.id,
 					"title": title,
-					"description": page.description,
 					"url": page.url,
-					"content": page.raw_content|e('html'),
 				}
 			])%}
 {% endfor %}
 
-{% set response = {'search': search_terms|e('html'), 'results': results} %}
-{{ response|json_encode(constant('JSON_PRETTY_PRINT')) }}
+{% set response = {'query': search_terms|e('html'), 'results': results} %}
+
+{{ response|json_encode(constant('JSON_PRETTY_PRINT'))|json_header }}

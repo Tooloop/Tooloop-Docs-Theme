@@ -83,17 +83,17 @@ const Search = Vue.createApp({
             this.selected = Math.min(Math.max(this.selected + position, 0), this.results.length - 1);
         },
         onKeyDown(keyboardEvent) {
-            if (keyboardEvent.key == 'Escape') {
+            if (keyboardEvent.key == 'Escape' && this.isActive) {
                 this.hide();
             }
-            else if (keyboardEvent.key == 'Enter') {
+            else if (keyboardEvent.key == 'Enter' && this.isActive) {
                 this.visit();
             }
-            else if (keyboardEvent.key == 'ArrowUp') {
+            else if (keyboardEvent.key == 'ArrowUp' && this.isActive) {
                 this.selectResult(-1);
                 return false;
             }
-            else if (keyboardEvent.key == 'ArrowDown') {
+            else if (keyboardEvent.key == 'ArrowDown' && this.isActive) {
                 this.selectResult(+1);
                 return false;
             }

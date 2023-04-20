@@ -1,5 +1,5 @@
 <div id="search">
-	<div class="modal is-justify-content-flex-start pt-6" v-bind:class="{'is-active': isActive}">
+	<div class="modal is-justify-content-flex-start" v-bind:class="{'is-active': isActive}">
 		<div class="modal-background" ref="background"></div>
 
 		<div class="modal-content">
@@ -7,19 +7,29 @@
 			<nav
 				class="panel has-background-white">
 				<!-- Search field -->
-				<div class="panel-block">
-					<p class="control has-icons-left has-icons-right">
-						<input class="input" type="text" ref="searchfield" v-bind:value="query" v-on:input="debounce(() => {query = $event.target.value;})" placeholder="Search">
-						<span class="icon is-left">
-							<i class="fas fa-search" aria-hidden="true"></i>
-						</span>
-						<a class="icon clear-input-button is-small is-right" v-on:click="clear();">
-							<i class="fas fa-backspace"></i>
-						</a>
-					</p>
+				<div class="panel-heading">
+					<div class="field has-addons">
+
+						<p class="control is-expanded has-icons-left has-icons-right">
+							<input class="input" type="text" ref="searchfield" v-bind:value="query" v-on:input="debounce(() => {query = $event.target.value;})" placeholder="Search">
+							<span class="icon is-left">
+								<i class="fas fa-search" aria-hidden="true"></i>
+							</span>
+							<a class="icon clear-input-button is-small is-right" v-on:click="clear();">
+								<i class="fas fa-backspace"></i>
+							</a>
+						</p>
+
+						<p class="control">
+							<button v-on:click="hide();" class="button is-dark">
+								Cancel
+							</button>
+						</p>
+
+					</div>
 				</div>
 				<!-- Results -->
-				<a class="panel-block" v-for="(result, index) in results" :href="result.url" :class="{'has-background-link': selected == index}">
+				<a class="panel-block" v-for="(result, index) in results" :href="result.url" :class="{'has-background-light': selected == index}">
 					<div>
 						{( result.title )}<br/>
 						<span class="has-text-grey-light is-size-7">{( result.id )}</span>

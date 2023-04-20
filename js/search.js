@@ -109,7 +109,7 @@ const Search = Vue.createApp({
 }).mount("#search");
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    Search.show();
-    Search.query = "install";
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     Search.show();
+//     Search.query = "install";
+// });

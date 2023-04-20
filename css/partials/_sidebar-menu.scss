@@ -6,89 +6,70 @@
     position: -webkit-sticky;
     position: sticky;
     top: $navbar-height;
+    z-index: 1;
+    padding-left: $size-1;
 }
 
-#docs-menu-toggle {
-    display: none;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2rem;
-    right: 0;
-    float: right;
-    z-index: 38;
-}
 
-#docs-menu-state {
-    display: none;
-}
 
-#docs-menu-state:checked~#docs-menu {
-    display: block;
-    left: 0;
-}
 
-#docs-menu .delete {
-    display: none;
-}
+@include until($desktop) {
 
-@media screen and (max-width: $desktop - 1px) {
-    #docs-menu-toggle {
-        display: block;
+    #sidebar {
+        position: absolute;
+        width: 0;
+        height: 0;
     }
 
     #docs-menu {
         float: none;
         position: fixed;
         left: -100%;
-        top: 2rem;
-        height: calc(100% - 4rem);
-        width: calc(100% - 1.5rem);
+        top: 2.5rem;
+        height: calc(100% - 2.5rem);
         transition: left 0.3s cubic-bezier(.19, 1, .22, 1);
         box-shadow: 0 0 1rem;
+        padding-left: $size-6;
     }
 
-    #docs-menu .delete {
+    #docs-menu.is-active {
         display: block;
-        position: fixed;
-        left: calc(100% - 4rem);
+        left: 0;
     }
 }
 
 
-.tree
-{
+.tree {
     text-align: left;
     display: block;
     width: 100%;
-    -webkit-user-select: none;  
-    -moz-user-select: none;    
-    -ms-user-select: none;      
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 
-    &.trunk
-    {
+    &.trunk {
         display: inline-block;
     }
 
-    &:not(.trunk)
-    {
+    &:not(.trunk) {
         padding-left: 1.5em;
-        li
-        {
+
+        li {
             overflow: hidden;
             height: 0;
             display: block;
         }
     }
 
-    label
-    {
+    label {
         display: block;
         cursor: pointer;
         color: $text;
-        padding: 0.25em 0 0.25rem 0em;;
-        &:before
-        {
+        padding: 0.25em 0 0.25rem 0em;
+        ;
+
+        &:before {
             font-family: 'Font Awesome\ 6 Free';
             font-weight: bold;
             width: 1em;
@@ -98,31 +79,27 @@
             padding-left: 0.3125rem;
             display: inline-block;
             color: $link;
-            transition: transform 0.3s cubic-bezier(.19,1,.22,1);
+            transition: transform 0.3s cubic-bezier(.19, 1, .22, 1);
         }
-        &:hover
-        {
+
+        &:hover {
             color: $text-light;
         }
     }
 
-    .node
-    {
-        a
-        {
+    .node {
+        a {
             padding: 0.25rem 0 0.25rem 0;
             display: block;
             color: $text-light;
             text-decoration: underline;
-            
-            &:hover
-            {
+
+            &:hover {
                 color: $link-hover;
             }
         }
 
-        &:before
-        {
+        &:before {
             content: " ";
             position: absolute;
             left: 0;
@@ -131,11 +108,10 @@
         }
 
 
-        .is-active
-        {
+        .is-active {
             font-weight: $weight-semibold;
-            a
-            {
+
+            a {
                 color: $link;
             }
         }
@@ -143,24 +119,22 @@
 
 
 
-    &.nested
-    {
+    &.nested {
         padding-left: 1.7em;
     }
 
-    [type="checkbox"]
-    {
+    [type="checkbox"] {
         display: none;
-        &:checked + label 
-        {
+
+        &:checked+label {
             color: $text-strong;
         }
-        &:checked + label:before 
-        {
+
+        &:checked+label:before {
             transform: rotate(90deg);
         }
-        &:checked ~ ul > li
-        {
+
+        &:checked~ul>li {
             height: auto;
         }
     }

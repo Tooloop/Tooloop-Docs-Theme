@@ -6,7 +6,7 @@
 
 				{% for section in pages["_footer"].meta.sections %}
 					<div class="column is-narrow">
-						<h3 class="title is-size-6 has-text-grey-light">{{ section.title }}</h3>
+						<h3 class="title is-size-6 has-text-grey-light">{{ section.text }}</h3>
 						<ul>
 							{% for item in section.items %}
 								<li>
@@ -15,7 +15,13 @@
 											<i class="{{ item.icon }}"></i>
 										</span>
 									{% endif %}
-									<a href="{{ item.url|url }}" class="has-text-grey">{{ item.title }}</a>
+									{% if item.url %}
+										<a href="{{ item.url|url }}" class="has-text-grey">
+										{% endif %}
+										{{ item.text }}
+										{% if item.url %}
+										</a>
+									{% endif %}
 								</li>
 							{% endfor %}
 						</ul>

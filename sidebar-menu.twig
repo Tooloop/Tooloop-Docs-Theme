@@ -1,16 +1,8 @@
-{# mobile button #}
-<label id="docs-menu-toggle" for="docs-menu-state" class="button is-light is-small">
-	<i class="fa fa-clipboard-list"></i>
-	Table of contents
-</label>
+<aside id="docs-menu" class="box is-shadowless is-radiusless has-background-light pt-6 pb-6">
+	<a href="{{ "index"|link }}" class="icon-text is-hidden-desktop pb-3">
+		<h1 class="title is-6">{{site_title}}</h1>
+	</a>
 
-{# state holder #}
-<input
-type="checkbox" id="docs-menu-state"/>
-
-
-{# sub pages #}
-<aside id="docs-menu" class="box is-shadowless has-background-light pt-6 pl-6 pb-6">
 	{% set root =  pages["index"].tree_node %}
 	{{ _self.menu_level(root, current_page, 0) }}
 </aside>
@@ -18,9 +10,7 @@ type="checkbox" id="docs-menu-state"/>
 
 {# recursive sub menu #}
 {% macro menu_level(root_node, current_page, level) %}
-
 	<ul class="tree{% if level == 0 %} trunk{% endif %}">
-
 
 		{% for node in root_node.children if not node.page.hidden and not node.page.meta.menuhidden %}
 			<li
@@ -29,15 +19,16 @@ type="checkbox" id="docs-menu-state"/>
 				{# Folder #}
 				{% if node.children %}
 					<input type="checkbox" id="trigger-{{node.id|split('/')|last|url_encode}}" {% if node.id in current_page.id %} checked {% endif %}>
-					<label for="trigger-{{node.id|split('/')|last|url_encode}}">
+					<label for="trigger-{{node.id|split('/')|last|url_encode}}" class="icon-text">
 						<span class="icon">
 							<i class="fa fa-folder fa-fw has-text-info"></i>
-						</span>
+						</span><span>
 						{% if node.page.title %}
 							{{node.page.title}}
 						{% else %}
 							{{node.id|split('/')|last}}
 						{% endif %}
+						</span>
 					</label>
 
 					{# Recursion one level deeper #}
@@ -46,20 +37,20 @@ type="checkbox" id="docs-menu-state"/>
 
 					{# Page #}
 				{% else %}
-					<a href="{{ node.page.url }}">
+					<a href="{{ node.page.url }}" class="icon-text">
 						<span class="icon">
 							<i class="fa fa-file fa-fw has-text-white"></i>
-						</span>
+						</span><span>
 						{% if node.page.title %}
 							{{node.page.title}}
 						{% else %}
 							{{node.id|split('/')|last}}
 						{% endif %}
+						</span>
 					</a>
 				{% endif %}
 
 			</li>
 		{% endfor %}
-
-	</ul>
-{% endmacro %}
+	</li>
+</ul>{% endmacro %}

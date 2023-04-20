@@ -1,33 +1,40 @@
 // -----------------------------------------------------------------------------
-// Fira Sans
+// Clear Sans
 // -----------------------------------------------------------------------------
 
 @font-face {
-  font-family: 'Fira Sans';
-  src: url('../fonts/FiraSans-Medium.woff2') format('woff2'),
-  url('../fonts/FiraSans-Medium.woff') format('woff');
+  font-family: 'Clear Sans';
+  src:
+    url('../fonts/ClearSans-Regular.woff') format('woff');
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Fira Sans';
-  src: url('../fonts/FiraSans-Regular.woff2') format('woff2'),
-  url('../fonts/FiraSans-Regular.woff') format('woff');
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-
-// Ultralight italic
-
-@font-face {
-  font-family: 'Fira Sans';
-  src: url('../fonts/FiraSans-UltraLightItalic.woff2') format('woff2'),
-  url('../fonts/FiraSans-UltraLightItalic.woff') format('woff');
+  font-family: 'Clear Sans';
+  src:
+    url('../fonts/ClearSans-Italic.woff') format('woff');
   font-style: italic;
-  font-weight: 100;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clear Sans';
+  src:
+    url('../fonts/ClearSans-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clear Sans';
+  src:
+    url('../fonts/ClearSans-BoldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -39,16 +46,30 @@
 
 @font-face {
   font-family: 'Bitter';
-  src: url('../fonts/bitter-regular-webfont.woff2') format('woff2'),
-       url('../fonts/bitter-regular-webfont.woff') format('woff');
-  font-weight: 300;
-  font-style: normal; 
+  src:
+    url('../fonts/bitter-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
 
+// -----------------------------------------------------------------------------
+// JetBrainsMono
+// -----------------------------------------------------------------------------
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono/fonts/webfonts/JetBrainsMono-ExtraLight.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// -----------------------------------------------------------------------------
 // Features
+// -----------------------------------------------------------------------------
 
 .smcp {
   -moz-font-feature-settings: "smcp";

@@ -10,6 +10,8 @@
 @import "partials/navbar";
 @import "partials/sidebar-menu";
 @import "partials/search";
+@import "partials/customize-prism";
+@import "partials/print";
 
 
 @charset "UTF-8";
@@ -19,3 +21,10 @@
 // -----------------------------------------------------------------------------
 @import "../vendor/bulma/sass/utilities/initial-variables";
 @import "../vendor/bulma/sass/utilities/functions";
+
+
+@include touch {
+    body {
+        overflow-x: hidden;
+    }
+}

@@ -1,8 +1,24 @@
-// navbar
-#nav-toggle-state {
-    display: none;
+#navbar {
+    z-index: 40;
+
+    .navbar-item:hover {
+        background-color: $black;
+    }
 }
 
-#nav-toggle-state:checked~.navbar-menu {
-    display: block;
+@include touch {
+    .navbar {
+        min-height: initial;
+    }
+
+    body.has-navbar-fixed-top {
+        padding-top: 2.5rem;
+    }
+}
+
+@include desktop {
+    .navbar {
+        padding-left: $size-1;
+        padding-right: $size-1;
+    }
 }

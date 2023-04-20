@@ -5,14 +5,12 @@ $yellow: #ff9900; // orange
 $green: #30bfa0; // dark green
 $turquoise: #66ffd9; // light green
 $cyan: #3cbeeb; // light blue
-// $blue: #003366; // dark blue
 $blue: hsl(210, 100%, 12%); // dark blue
 $purple: #570044; // purple
 $red: #e6004c; // pink
 
 $primary-light: #ff0066; // pink
 $primary: $red;
-// $primary-dark: #d50046; // pink
 $primary-dark: darken($primary, 20%);
 $danger: $purple;
 
@@ -25,17 +23,25 @@ $grey-darker: hsl(0, 0%, 15%);
 $hover-color-light: rgba(255, 255, 255, 0.5);
 $hover-color-dark: rgba(0, 0, 0, 0.075);
 
+
 // Typography
 
 $body-size: 18px;
-$family-sans-serif: "Fira Sans", "FiraSans", sans-serif;
-$family-serif: "Bitter", serif;
+$family-sans-serif: "Clear Sans", sans-serif;
+$family-serif: "Bitter", sans-serif;
+$family-monospace: "JetBrains Mono", monospace;
 
 $family-secondary: $family-serif;
 $title-family: $family-serif;
 $subtitle-family: $family-serif;
 
 $content-heading-weight: 300;
+
+// Elements
+
+$input-focus-box-shadow-size: 0;
+$input-focus-box-shadow-color: transparent;
+
 
 .content {
     a:not(.call-to-action):not(.button) {
@@ -72,8 +78,8 @@ $column-gap: 1.5rem;
 
 // Components
 
-$radius: 0;
-$radius-large: 0;
+// $radius: 0;
+// $radius-large: 0;
 
 .button.is-tiny {
     font-size: 0.666666rem;

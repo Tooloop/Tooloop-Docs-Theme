@@ -20,4 +20,4 @@
 
 {% set response = {'query': search_terms|e('html'), 'results': results} %}
 
-{{ response|json_encode(constant('JSON_PRETTY_PRINT'))|json_header }}
+{{ response|json_encode(constant('JSON_PRETTY_PRINT'))|json_header|raw }}

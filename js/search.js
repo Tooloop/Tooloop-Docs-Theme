@@ -12,7 +12,7 @@ const Search = Vue.createApp({
     },
     computed: {
         api() {
-            return "/search/";
+            return "search/";
         }
     },
     created() {

@@ -58,7 +58,7 @@
 
 		{% if pages['_meta'].meta.search %}
 			{% include 'search-form.twig' %}
-			<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+			<script src="{{theme_url}}/vendor/vue/vue.global.prod.js"></script>
 			<script src="{{theme_url}}/js/search.js"></script>
 		{% endif %}
 

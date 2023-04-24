@@ -60,6 +60,9 @@
 			{% include 'search-form.twig' %}
 			<script src="{{theme_url}}/vendor/vue/vue.global.prod.js"></script>
 			<script src="{{theme_url}}/js/search.js"></script>
+			<script>
+				Search.api = "{{ pages['_meta'].meta.search|url }}";
+			</script>
 		{% endif %}
 
 		{% include 'footer.twig' %}

@@ -24,16 +24,29 @@ logo: %assets_url%/tooloop-logo.svg
 
 ### Search
 
-The theme includes a search function based on these two plugins:
+The theme includes a search function based on these two plugins.
+Install these first:
 
 - https://github.com/PontusHorn/Pico-Search
 - https://github.com/Tooloop/Pico-Json-Header
 
-Install these first and then enable the search:
+Add a search page:
+
+`search.md`
+
+```yaml
+---
+Title: Search results
+Template: search
+Hidden: true
+---
+```
+
+Then enable the search by adding the url to your search page to the meta file.
 
 `content/_meta.md`
 ```yaml
-search: true
+search: %base_url%/search
 ```
 Also exclude these files from the search:
 
@@ -49,9 +62,10 @@ search_excludes:
 
 `content/_meta.md`
 ```yaml
-# %file% will be replaced by the file path relative to the content folder
 edit_url: https://github.com/Tooloop/Tooloop-OS-Website/edit/master/content/%file%
 ```
+
+`%file%` will be replaced by the file path relative to the content folder.
 
 ### Footer links
 

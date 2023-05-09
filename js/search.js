@@ -8,11 +8,7 @@ const Search = Vue.createApp({
             results: [],
             timeout: null,
             selected: -1,
-        }
-    },
-    computed: {
-        api() {
-            return "search/";
+            api: "search/"
         }
     },
     created() {
@@ -61,6 +57,8 @@ const Search = Vue.createApp({
         search(query) {
             if (!query) query = this.query;
 
+            if (this.api.slice(-1) !== '/') this.api += '/';
+
             fetch(this.api + query)
                 .then(response => response.json())
                 .then(response => {
@@ -71,7 +69,7 @@ const Search = Vue.createApp({
         focus() {
             // wait for two frames as the search field will have to be added to
             // the DOM in order to receive focus
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.$refs.searchfield.focus();
             }, 32);
         },
